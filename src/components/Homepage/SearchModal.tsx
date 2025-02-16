@@ -13,7 +13,7 @@ const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
   const [movies, setMovies] = useState<object[]>([]);
   const [query, setQuery] = useState<string>("");
 
-  console.log(query)
+  // console.log(query)
   const handleSearch = async () => {
     if (!query.trim()) return;
     try {
