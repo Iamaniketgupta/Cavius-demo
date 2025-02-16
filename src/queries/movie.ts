@@ -1,9 +1,9 @@
 import axiosInstance from "../api/axios"
-const TOKEN: string = import.meta.env.VITE_ACCESS_TOKEN.trim();
+// const TOKEN: string = import.meta.env.VITE_ACCESS_TOKEN.trim();
 
 const headers = {
     "accept": "application/json",
-    "Authorization": `"Bearer ${TOKEN}"`
+    "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4ZmE2ZjgyZWNlNmY3MGM5NzQzNzAyYTMxZmM4MWFiYSIsIm5iZiI6MTczOTI4NDU0My43NTYsInN1YiI6IjY3YWI2MDNmYTJlMmY5OWVkNGJiM2RkNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.MTN9S8YaZTYRIvQH-49qFaqu9UtJQoPsLzntlT8QAU8"
 }
 export const getPopularMovies = async () => {
     try {
