@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import axiosInstance from "../../api/axios";
+import { headers } from "../../queries/movie";
 import Hero from "../../components/Movie/Hero";
 import ReviewCrousal from "../../components/Movie/ReviewCrousal";
 import MovieDetail from "../../components/Movie/MovieDetail";
 import Loader from "../../components/commons/Loader";
-import { searchMovies } from "../../queries/movie";
 
 interface Movie {
   id: number;
@@ -27,7 +28,9 @@ export default function MoviePage() {
  
       try {
         setLoading(true);
-        const response = await searchMovies(id);
+        const response = await axiosInstance.get(`/movie/${id}`,{
+          headers
+        });
         // console.log(response)
         setMovieData(response.data);
       } catch (err) {
