@@ -7,7 +7,7 @@ export const getPopularMovies = async () => {
         const res = await axiosInstance.get(`/movie/popular?language=en-US&page=1`,{
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${TOKEN}`,  
+                'authorization': `Bearer ${TOKEN}`,  
               },
         })
         // console.log({pop:res.data.results})
