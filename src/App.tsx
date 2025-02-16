@@ -16,11 +16,10 @@ const [movies, setMovies] = useState({
   latest: [],
   upcoming: []
 });
-  // const dispatch = useDispatch();
+ 
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  // const { popular, toprated, latest, upcoming, } = useSelector((state) => state.movies);
-  const fetchData = async () => {
+  const [error, setError] = useState<string | null>(null);
+   const fetchData = async () => {
     try {
 
       setLoading(true);
@@ -39,8 +38,8 @@ const [movies, setMovies] = useState({
       });
      
     } catch (err) {
-      console.log(err.response.data.status_message)
-      // setError(err.response.data.status_message);
+      console.log('Something went wrong',err)
+      setError("Failed to load movie details. Please try again later.");
      
     } finally {
       setLoading(false);
