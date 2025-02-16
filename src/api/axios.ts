@@ -17,8 +17,6 @@ axiosRetry(axiosInstance, {
 
 axiosInstance.interceptors.request.use(
     (config) => {
-      config.headers = config.headers ?? {}; 
-  
       config.headers['Content-Type'] = 'application/json';
       config.headers['Authorization'] = `Bearer ${TOKEN}`;
   
