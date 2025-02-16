@@ -1,5 +1,5 @@
 import axiosInstance from "../api/axios"
-const TOKEN: string = import.meta.env.VITE_ACCESS_TOKEN.trim();
+// const TOKEN: string = import.meta.env.VITE_ACCESS_TOKEN.trim();
 
 const headers = {
     "accept": "application/json",
