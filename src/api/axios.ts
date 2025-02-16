@@ -2,14 +2,9 @@ import axios, { AxiosInstance } from 'axios';
 import axiosRetry from 'axios-retry';
 
 const API_BASE_URL: string = import.meta.env.VITE_API_BASE_URL;
-const TOKEN: string = import.meta.env.VITE_ACCESS_TOKEN.trim();
 
 const axiosInstance: AxiosInstance = axios.create({
   baseURL: API_BASE_URL,
-  headers: {
-    'Content-Type': 'application/json',
-    'Authorization': `Bearer ${TOKEN}`,  
-  },
 });
 
 axiosRetry(axiosInstance, {
