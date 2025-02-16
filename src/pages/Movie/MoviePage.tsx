@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import axiosInstance from "../../api/axios";
 import Hero from "../../components/Movie/Hero";
 import ReviewCrousal from "../../components/Movie/ReviewCrousal";
 import MovieDetail from "../../components/Movie/MovieDetail";
