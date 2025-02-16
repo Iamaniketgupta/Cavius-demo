@@ -3,11 +3,17 @@ import { IoArrowForward } from "react-icons/io5";
 import { Link } from "react-router-dom";
  
 interface SliderCardProps {
-  data: object;
+ data :{
+
+   id: number;
+   title: string;
+   poster_path: string;
+ }
+  
  }
 
 const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500";
-const SliderCard: React.FC<SliderCardProps> = ({ data }) => {
+const SliderCard: React.FC<SliderCardProps> = ({ data }: SliderCardProps) => {
   return (
     <div className='p-4 md:p-[30px]  border-[1px] border-black15 rounded-xl backdrop-blur-xl bg-black10'>
       {/* Image container */}

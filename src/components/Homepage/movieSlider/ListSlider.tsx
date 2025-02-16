@@ -131,7 +131,11 @@ function ListSlider({ title, data }: { title?: string, data?: object[] }) {
 
                             }}
                         >
-                            {data?.map((slide) => (
+                            {data?.map((slide:{
+                                id: number,
+                                title: string,
+                                poster_path: string
+                            }) => (
                                 <div
                                     key={slide.id}
                                     className="flex-none"

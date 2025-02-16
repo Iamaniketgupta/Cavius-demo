@@ -69,7 +69,11 @@ const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
           { movies && movies?.length === 0 ? (
             <div className="col-span-full text-center text-gray-400 text-sm">No Movies Found</div>
           ) : (
-            movies?.map((item) => (
+            movies?.map((item: {
+              id: number;
+              title: string;
+              poster_path: string;
+            }) => (
               <div key={item.id}>
                 <a onClick={onClose} href={`/show/${item.id}`}>
                   <SliderCard data={item} />
