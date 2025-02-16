@@ -5,6 +5,7 @@ import Hero from "../../components/Movie/Hero";
 import ReviewCrousal from "../../components/Movie/ReviewCrousal";
 import MovieDetail from "../../components/Movie/MovieDetail";
 import Loader from "../../components/commons/Loader";
+import { searchMovies } from "../../queries/movie";
 
 interface Movie {
   id: number;
@@ -27,7 +28,7 @@ export default function MoviePage() {
  
       try {
         setLoading(true);
-        const response = await axiosInstance.get(`/movie/${id}`);
+        const response = await searchMovies(id);
         // console.log(response)
         setMovieData(response.data);
       } catch (err) {

@@ -75,3 +75,4 @@ export const searchMovies = async (query: string) => {
 
 
 
+
