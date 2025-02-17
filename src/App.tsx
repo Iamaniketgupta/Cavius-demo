@@ -7,19 +7,16 @@ import NavBar from './components/Homepage/NavBar'
 import Footer from './components/Homepage/Footer'
 import { useEffect, useState } from 'react'
 import { getNowPlayingMovies, getPopularMovies, getTopRatedMovies, getUpComingMovies } from './queries/movie'
+import { useDispatch } from 'react-redux'
+import { setMovies } from './store/slices/movieSlice'
 
 function App() {
 
-const [movies, setMovies] = useState({
-  popular: [],
-  toprated: [],
-  latest: [],
-  upcoming: []
-});
- 
+  const dispach = useDispatch();
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-   const fetchData = async () => {
+  const fetchData = async () => {
     try {
 
       setLoading(true);
@@ -30,17 +27,17 @@ const [movies, setMovies] = useState({
         getUpComingMovies()
       ]);
 
-      setMovies({
-        popular: popularMovies ,
+      dispach(setMovies({
+        popular: popularMovies,
         toprated: topRatedMovies,
         latest: nowPlayingMovies,
         upcoming: upComingMovies
-      });
-     
+      }));
+
     } catch (err) {
-      console.log('Something went wrong',err)
+      console.log('Something went wrong', err)
       setError("Failed to load movie details. Please try again later.");
-     
+
     } finally {
       setLoading(false);
     }
@@ -56,10 +53,10 @@ const [movies, setMovies] = useState({
     <>
       <NavBar />
       <Routes>
-        <Route path='/' element={<Home movies={movies} loading={loading} error={error}/>}></Route>
+        <Route path='/' element={<Home  loading={loading} error={error} />}></Route>
         <Route path='/movie/:id' element={<MoviePage />}></Route>
       </Routes>
-      <Footer/>
+      <Footer />
     </>
   )
 }
